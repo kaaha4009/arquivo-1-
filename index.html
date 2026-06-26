@@ -2,161 +2,158 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Curso de Cartas & Intuição</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mesa Mística - Curso de Cartas</title>
 
 <style>
-body{
-margin:0;
-font-family:Arial;
-background: radial-gradient(circle at top,#120018,#000);
-color:white;
+/* ===== BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-.container{
-max-width:900px;
-margin:auto;
-padding:60px 20px;
-text-align:center;
+body {
+  background: radial-gradient(circle at top, #1a001f, #000);
+  color: #fff;
+  overflow-x: hidden;
 }
 
-/* HEADLINE */
-h1{
-font-size:42px;
-text-shadow:0 0 18px #a855f7;
-line-height:1.1;
+/* ===== FUNDO SUAVE (SEM TRAVAR) ===== */
+.glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: rgba(128, 0, 128, 0.15);
+  filter: blur(80px);
+  border-radius: 50%;
+  animation: float 10s infinite ease-in-out;
 }
 
-/* SUB */
-.sub{
-font-size:16px;
-opacity:.85;
-margin-bottom:20px;
+.glow:nth-child(1) { top: 10%; left: 10%; }
+.glow:nth-child(2) { bottom: 10%; right: 10%; animation-delay: 2s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(30px); }
 }
 
-/* SEÇÕES */
-.section{
-margin-top:40px;
-text-align:left;
+/* ===== CONTAINER ===== */
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
 }
 
-.section h2{
-color:#d8b4fe;
-font-size:20px;
-margin-bottom:10px;
+/* ===== TÍTULO ===== */
+h1 {
+  font-size: 2.5rem;
+  color: #d6a3ff;
+  margin-bottom: 15px;
+  animation: fadeIn 1.5s ease;
 }
 
-/* IMAGENS */
-img{
-width:100%;
-border-radius:16px;
-margin-top:10px;
-box-shadow:0 0 25px rgba(168,85,247,0.25);
+p.subtitle {
+  color: #ccc;
+  margin-bottom: 30px;
 }
 
-/* CARD */
-.card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-padding:20px;
-border-radius:16px;
-margin-top:25px;
-backdrop-filter: blur(10px);
+/* ===== SEÇÕES ===== */
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 15px;
+  backdrop-filter: blur(6px);
+  animation: fadeUp 1s ease;
 }
 
-/* LISTA */
-ul{
-text-align:left;
-padding-left:18px;
+/* ===== IMAGENS ===== */
+img {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+  opacity: 0.9;
 }
 
-/* PREÇO */
-.price{
-font-size:26px;
-color:#c084fc;
-margin-top:15px;
+/* ===== BOTÃO ===== */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 25px;
+  background: #7b2cbf;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(123,44,191,0.4);
 }
 
-/* BOTÃO */
-button{
-margin-top:20px;
-padding:18px;
-width:100%;
-border:none;
-border-radius:14px;
-cursor:pointer;
-font-size:18px;
-color:white;
-background:linear-gradient(45deg,#6d28d9,#a855f7,#c084fc);
-box-shadow:0 0 30px #a855f7;
+.btn:hover {
+  transform: scale(1.05);
+  background: #9d4edd;
 }
 
-button:active{
-transform:scale(0.97);
+/* ===== ANIMAÇÕES LEVES ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* PROVA SOCIAL */
-.testimonial{
-margin-top:20px;
-font-size:14px;
-opacity:.85;
-border-left:3px solid #a855f7;
-padding-left:10px;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+  h1 { font-size: 1.8rem; }
 }
 </style>
 </head>
 
 <body>
 
+<!-- fundo místico leve -->
+<div class="glow"></div>
+<div class="glow"></div>
+
 <div class="container">
 
-<h1>Desperte sua Intuição e domine as energias ao seu redor</h1>
+  <h1>Curso Mesa Mística de Cartas</h1>
+  <p class="subtitle">Ervas • Proteção • Limpeza energética • Baralho Cigano</p>
 
-<div class="sub">
-Aprenda leitura espiritual, limpeza energética e criação de base energética para suas práticas.
-</div>
+  <div class="card">
+    <h2>🌿 Limpeza com Ervas</h2>
+    <p>Aprenda o uso espiritual das ervas para limpeza profunda da energia antes dos jogos.</p>
+    <img src="https://images.unsplash.com/photo-1544047108-1b5a9b1b1a5f" alt="ervas">
+  </div>
 
-<div class="card">
+  <div class="card">
+    <h2>🕯️ Proteção Espiritual</h2>
+    <p>Rituais de proteção energética para você e sua mesa de trabalho espiritual.</p>
+    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="velas">
+  </div>
 
-<h2>🌿 Ervas e Limpeza Energética (Base da Mesa)</h2>
+  <div class="card">
+    <h2>🃏 Mesa de Cartas</h2>
+    <p>Aprenda a abrir e fechar jogos com segurança espiritual e leitura intuitiva.</p>
+    <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904" alt="cartas">
+  </div>
 
-<p>Aprenda como preparar ervas e usar sua energia para limpeza e proteção espiritual.</p>
-
-<img src="/mnt/data/a_dark_mystical_themed_promotional_webpage_land.png" alt="Ervas e energia espiritual">
-
-</div>
-
-<div class="card">
-
-<h2>🔥 Feitiços de Limpeza e Proteção</h2>
-
-<p>Rituais simples e poderosos para limpeza energética, proteção e harmonização espiritual.</p>
-
-<img src="/mnt/data/a_dark_mystical_themed_promotional_webpage_land.png" alt="Feitiços espirituais e proteção">
-
-</div>
-
-<div class="card">
-
-<h2>📚 O que você vai aprender</h2>
-<ul>
-<li>Leitura intuitiva de cartas</li>
-<li>Interpretação energética</li>
-<li>Limpeza espiritual com ervas</li>
-<li>Proteção energética de ambientes</li>
-</ul>
-
-<div class="price"><b>R$97 acesso completo</b></div>
-
-<button onclick="window.location.href='https://loja.infinitepay.io/kahdmulambo'">
-QUERO ACESSAR AGORA
-</button>
-
-<div class="testimonial">
-“Comecei a sentir mais clareza e proteção depois das práticas ensinadas.”  
-</div>
-
-</div>
+  <a class="btn" href="#comprar">Quero entrar no curso</a>
 
 </div>
 
