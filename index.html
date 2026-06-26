@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mesa Mística - Curso de Cartas</title>
+<title>Curso Mesa Mística</title>
 
 <style>
-/* ===== BASE ===== */
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +19,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== FUNDO SUAVE (SEM TRAVAR) ===== */
+/* fundo leve animado */
 .glow {
   position: fixed;
   width: 300px;
@@ -39,30 +38,43 @@ body {
   50% { transform: translateY(30px); }
 }
 
-/* ===== CONTAINER ===== */
+/* container */
 .container {
   position: relative;
   z-index: 2;
   max-width: 900px;
   margin: auto;
-  padding: 40px 20px;
+  padding: 25px 20px;
   text-align: center;
 }
 
-/* ===== TÍTULO ===== */
+/* imagens (placeholder seguro) */
+.placeholder {
+  width: 100%;
+  height: 220px;
+  background: rgba(255,255,255,0.08);
+  border: 1px dashed rgba(255,255,255,0.2);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  margin: 15px 0;
+}
+
+/* título */
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   color: #d6a3ff;
-  margin-bottom: 15px;
-  animation: fadeIn 1.5s ease;
+  margin-bottom: 10px;
 }
 
-p.subtitle {
+.subtitle {
   color: #ccc;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
-/* ===== SEÇÕES ===== */
+/* cards */
 .card {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
@@ -73,87 +85,72 @@ p.subtitle {
   animation: fadeUp 1s ease;
 }
 
-/* ===== IMAGENS ===== */
-img {
-  width: 100%;
-  border-radius: 12px;
-  margin-top: 10px;
-  opacity: 0.9;
-}
-
-/* ===== BOTÃO ===== */
-.btn {
+/* botão whatsapp */
+.whatsapp-btn {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 25px;
   padding: 15px 25px;
-  background: #7b2cbf;
+  background: #25D366;
   color: #fff;
   border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
-  box-shadow: 0 0 15px rgba(123,44,191,0.4);
+  box-shadow: 0 0 15px rgba(37,211,102,0.4);
 }
 
-.btn:hover {
+.whatsapp-btn:hover {
   transform: scale(1.05);
-  background: #9d4edd;
 }
 
-/* ===== ANIMAÇÕES LEVES ===== */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
+/* animação */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== RESPONSIVO ===== */
-@media (max-width: 600px) {
-  h1 { font-size: 1.8rem; }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- fundo místico leve -->
 <div class="glow"></div>
 <div class="glow"></div>
 
 <div class="container">
 
+  <!-- CAPA -->
+  <div class="placeholder">IMAGEM DE CAPA (MESA MÍSTICA)</div>
+
   <h1>Curso Mesa Mística de Cartas</h1>
   <p class="subtitle">Ervas • Proteção • Limpeza energética • Baralho Cigano</p>
 
+  <!-- SEÇÃO 1 -->
   <div class="card">
     <h2>🌿 Limpeza com Ervas</h2>
-    <p>Aprenda o uso espiritual das ervas para limpeza profunda da energia antes dos jogos.</p>
-    <img src="https://images.unsplash.com/photo-1544047108-1b5a9b1b1a5f" alt="ervas">
+    <p>Aprenda o uso espiritual das ervas para limpeza energética da mesa e do campo espiritual.</p>
+    <div class="placeholder">IMAGEM: ERVAS ESPIRITUAIS</div>
   </div>
 
+  <!-- SEÇÃO 2 -->
   <div class="card">
     <h2>🕯️ Proteção Espiritual</h2>
-    <p>Rituais de proteção energética para você e sua mesa de trabalho espiritual.</p>
-    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="velas">
+    <p>Rituais de proteção antes e depois das leituras espirituais.</p>
+    <div class="placeholder">IMAGEM: VELAS / PROTEÇÃO</div>
   </div>
 
+  <!-- SEÇÃO 3 -->
   <div class="card">
     <h2>🃏 Mesa de Cartas</h2>
-    <p>Aprenda a abrir e fechar jogos com segurança espiritual e leitura intuitiva.</p>
-    <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904" alt="cartas">
+    <p>Aprenda abertura e fechamento de jogos com segurança energética e intuição.</p>
+    <div class="placeholder">IMAGEM: BARALHO CIGANO</div>
   </div>
 
-  <a class="btn" href="#comprar">Quero entrar no curso</a>
+  <!-- BOTÃO WHATSAPP -->
+  <a class="whatsapp-btn"
+     href="https://wa.me/5562984420263?text=Quero%20entrar%20no%20curso%20Mesa%20M%C3%ADstica"
+     target="_blank">
+     💬 Falar no WhatsApp
+  </a>
 
 </div>
 
