@@ -2,113 +2,111 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Despertar Intuitivo</title>
+<title>Curso de Cartas & Intuição</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
 margin:0;
-font-family: Arial, sans-serif;
-background:#07000c;
+font-family:Arial;
+background: radial-gradient(circle at top,#120018,#000);
 color:white;
 overflow-x:hidden;
 }
 
-/* FUNDO ENERGÉTICO */
+/* FUNDO */
 .bg{
 position:fixed;
 width:100%;
 height:100%;
-background: radial-gradient(circle at top, rgba(168,85,247,0.35), transparent 60%);
-animation: pulse 3s infinite alternate;
-z-index:-2;
+background: radial-gradient(circle at top, rgba(168,85,247,0.25), transparent 60%);
+z-index:-1;
+animation:pulse 5s infinite alternate;
 }
 
 @keyframes pulse{
-from{opacity:.4; transform:scale(1);}
-to{opacity:.9; transform:scale(1.05);}
-}
-
-/* PARTÍCULAS */
-.particle{
-position:absolute;
-width:3px;
-height:3px;
-background:#c084fc;
-border-radius:50%;
-animation: float 8s linear infinite;
-opacity:.7;
-}
-
-@keyframes float{
-0%{transform:translateY(100vh); opacity:0;}
-50%{opacity:1;}
-100%{transform:translateY(-10vh); opacity:0;}
+from{opacity:.4;}
+to{opacity:.9;}
 }
 
 /* CONTAINER */
 .container{
-max-width:720px;
+max-width:820px;
 margin:auto;
+padding:70px 20px;
 text-align:center;
-padding:90px 20px;
-position:relative;
-z-index:2;
 }
 
-/* HOOK VIRAL */
+/* HEADLINE */
 h1{
 font-size:40px;
 line-height:1.1;
-text-shadow:0 0 20px #a855f7;
+text-shadow:0 0 18px #a855f7;
 margin-bottom:10px;
 }
 
+/* SUB */
 .sub{
 font-size:16px;
 opacity:.85;
 margin-bottom:25px;
 }
 
-/* CAIXA DE IMPACTO */
-.box{
+/* BOX PRINCIPAL */
+.card{
 background:rgba(255,255,255,0.05);
-padding:22px;
+border:1px solid rgba(255,255,255,0.1);
+padding:25px;
 border-radius:16px;
 backdrop-filter: blur(10px);
-border:1px solid rgba(255,255,255,0.08);
+margin-top:20px;
+}
+
+/* SEÇÕES */
+.section{
+text-align:left;
+margin-top:25px;
+font-size:15px;
+opacity:.9;
+line-height:1.6;
+}
+
+/* LISTA BENEFÍCIOS */
+ul{
+text-align:left;
+margin-top:10px;
+padding-left:20px;
+}
+
+li{
+margin-bottom:8px;
 }
 
 /* PREÇO */
 .price{
-font-size:24px;
+font-size:26px;
 color:#d8b4fe;
-margin:10px 0;
+margin-top:15px;
 }
 
-/* BOTÃO VIRAL EXTREMO */
+/* BOTÃO */
 button{
-margin-top:18px;
-padding:18px 32px;
+margin-top:20px;
+padding:18px 35px;
 font-size:18px;
 border:none;
-border-radius:14px;
+border-radius:12px;
 cursor:pointer;
 color:white;
 background:linear-gradient(45deg,#6d28d9,#a855f7,#c084fc);
 box-shadow:0 0 30px #a855f7;
-animation:pulseBtn 1.8s infinite;
 transition:.2s;
+width:100%;
+max-width:400px;
 }
 
 button:active{
-transform:scale(0.96);
-}
-
-@keyframes pulseBtn{
-0%{box-shadow:0 0 10px #a855f7;}
-50%{box-shadow:0 0 40px #c084fc;}
-100%{box-shadow:0 0 10px #a855f7;}
+transform:scale(0.97);
 }
 
 /* URGÊNCIA */
@@ -119,21 +117,14 @@ opacity:.7;
 color:#f5d0fe;
 }
 
-/* STICKY CTA MOBILE */
-.sticky{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-background:#120018;
-padding:12px;
-text-align:center;
-border-top:1px solid rgba(255,255,255,0.1);
-}
-
-.sticky button{
-width:90%;
-max-width:500px;
+/* PROVA SOCIAL */
+.testimonial{
+margin-top:25px;
+font-size:14px;
+opacity:.85;
+border-left:3px solid #a855f7;
+padding-left:10px;
+text-align:left;
 }
 </style>
 </head>
@@ -144,52 +135,47 @@ max-width:500px;
 
 <div class="container">
 
-<h1>Você não precisa de dom… você precisa de método.</h1>
+<h1>Desperte sua Intuição e aprenda a ler símbolos espirituais</h1>
 
 <div class="sub">
-Aprenda a interpretar sinais espirituais e desenvolver sua intuição na prática.
+Um método simples para interpretar sinais e desenvolver percepção energética na prática.
 </div>
 
-<div class="box">
+<div class="card">
 
-<p><b>Curso de Cartas & Intuição</b></p>
+<div class="section">
+<b>O que você vai aprender:</b>
+<ul>
+<li>Leitura intuitiva de cartas e símbolos</li>
+<li>Interpretação energética básica</li>
+<li>Como identificar sinais espirituais no dia a dia</li>
+<li>Desenvolvimento da percepção intuitiva</li>
+</ul>
+</div>
 
-<p>Leitura simbólica + percepção energética + interpretação intuitiva.</p>
+<div class="section">
+<b>Para quem é este curso:</b><br>
+Para quem sente intuição forte, curiosidade espiritual ou quer entender melhor sinais e energias.
+</div>
 
 <div class="price"><b>R$97 acesso completo</b></div>
 
 <button onclick="window.location.href='https://loja.infinitepay.io/kahdmulambo'">
-QUERO DESBLOQUEAR MINHA INTUIÇÃO
+QUERO ACESSAR AGORA
 </button>
 
 <div class="urgency">
 ⚠ acesso imediato após pagamento • conteúdo digital
 </div>
 
+<div class="testimonial">
+“Comecei a entender sinais que antes eu ignorava. Muito simples e direto.”  
+<br>— aluna do curso
 </div>
 
 </div>
 
-<!-- BOTÃO FIXO MOBILE -->
-<div class="sticky">
-<button onclick="window.location.href='https://loja.infinitepay.io/kahdmulambo'">
-QUERO ACESSAR AGORA
-</button>
 </div>
-
-<script>
-
-/* PARTÍCULAS AUTOMÁTICAS */
-for(let i=0;i<50;i++){
-let p=document.createElement("div");
-p.className="particle";
-p.style.left=Math.random()*100+"vw";
-p.style.animationDuration=(5+Math.random()*8)+"s";
-p.style.opacity=Math.random();
-document.body.appendChild(p);
-}
-
-</script>
 
 </body>
 </html>
