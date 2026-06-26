@@ -2,58 +2,142 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Curso Baralho Cigano & Pomba Gira</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curso de Cartas - Despertar Espiritual</title>
 
 <style>
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #050007;
-  color: #fff;
-  overflow-x: hidden;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle, #1a001f, #000000);
+    color: #fff;
+    overflow-x: hidden;
 }
 
-/* fundo com energia */
-body::before {
-  content: "";
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;
-  opacity: 0.25;
-  z-index: -1;
+/* Fundo místico animado */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/3Xj5Q9m.png');
+    animation: moveStars 60s linear infinite;
+    opacity: 0.2;
+    z-index: -1;
 }
 
-/* animação leve de brilho */
-@keyframes glow {
-  0% { box-shadow: 0 0 10px rgba(168,85,247,0.3); }
-  50% { box-shadow: 0 0 25px rgba(168,85,247,0.7); }
-  100% { box-shadow: 0 0 10px rgba(168,85,247,0.3); }
+@keyframes moveStars {
+    from {background-position: 0 0;}
+    to {background-position: 10000px 5000px;}
 }
 
 header {
-  text-align: center;
-  padding: 70px 20px;
-  background: linear-gradient(90deg, #2b003d, #000);
+    text-align: center;
+    padding: 60px 20px;
 }
 
-header h1 {
-  font-size: 40px;
-  margin: 0;
-  color: #f5d0ff;
-  animation: glow 3s infinite;
+h1 {
+    font-size: 2.5em;
+    color: #d6a4ff;
+    text-shadow: 0 0 15px #a855f7;
+    animation: pulse 2s infinite;
 }
 
-header p {
-  color: #d9c2ff;
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.05);}
+    100% {transform: scale(1);}
 }
 
-/* cards */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
 .card {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 25px;
-  background: rgba(20, 10, 30, 0.85);
-  border-radius: 15px;
-  border: 1px solid rgba(200, 150, 255,
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    border: 1px solid rgba(168,85,247,0.4);
+    backdrop-filter: blur(8px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #a855f7;
+}
+
+button {
+    background: linear-gradient(45deg, #7e22ce, #a855f7);
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #a855f7;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    opacity: 0.6;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<header>
+    <h1>Desperte sua Sensibilidade Espiritual</h1>
+    <p>Curso completo de Baralho Cigano e Leitura Intuitiva</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>🔮 Transforme sua energia</h2>
+        <p>Aprenda a interpretar cartas e desenvolver sua intuição espiritual de forma prática e profunda.</p>
+    </div>
+
+    <div class="card">
+        <h2>✨ Acesso imediato</h2>
+        <p>Após a inscrição, você recebe todo o conteúdo para começar sua jornada espiritual.</p>
+    </div>
+
+    <div class="card">
+        <h2>💰 Oferta especial</h2>
+        <p><strong>Curso completo por apenas R$97</strong></p>
+    </div>
+
+    <div class="card" style="text-align:center;">
+        <h2>🌙 Inicie agora sua jornada</h2>
+        <button onclick="comprar()">Quero meu acesso</button>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 - Curso Espiritual | Todos os direitos reservados
+</footer>
+
+<script>
+function comprar() {
+    alert("Redirecionando para pagamento...");
+    // aqui você pode colocar link do pagamento (hotmart, pix, etc)
+    // window.location.href = "SEU-LINK-AQUI";
+}
+</script>
+
+</body>
+</html>
