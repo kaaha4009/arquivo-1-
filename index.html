@@ -19,40 +19,135 @@ body {
   overflow-x: hidden;
 }
 
-/* fundo leve animado */
+/* ===== FUNDO ===== */
 .glow {
   position: fixed;
-  width: 300px;
-  height: 300px;
-  background: rgba(128, 0, 128, 0.15);
-  filter: blur(80px);
+  width: 260px;
+  height: 260px;
+  background: rgba(170, 90, 255, 0.12);
+  filter: blur(90px);
   border-radius: 50%;
-  animation: float 10s infinite ease-in-out;
+  animation: float 12s infinite ease-in-out;
+  z-index: 0;
 }
 
 .glow:nth-child(1) { top: 10%; left: 10%; }
-.glow:nth-child(2) { bottom: 10%; right: 10%; animation-delay: 2s; }
+.glow:nth-child(2) { bottom: 10%; right: 10%; }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(30px); }
+  50% { transform: translateY(25px); }
 }
 
-/* container */
+/* ===== SILHUETA DA MULHER ===== */
+.woman {
+  position: fixed;
+  bottom: 0;
+  right: 5%;
+  width: 120px;
+  height: 260px;
+  background: linear-gradient(to top, #000, transparent);
+  border-radius: 60px 60px 20px 20px;
+  opacity: 0.25;
+  z-index: 1;
+  animation: breathe 6s infinite ease-in-out;
+}
+
+.woman::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  background: #111;
+  border-radius: 50%;
+}
+
+.woman::after {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 10px;
+  width: 100px;
+  height: 120px;
+  background: radial-gradient(circle, #000 30%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+@keyframes breathe {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ===== CARTAS FLUTUANTES ===== */
+.card-float {
+  position: fixed;
+  width: 25px;
+  height: 35px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  animation: floatCard 8s infinite linear;
+  z-index: 1;
+}
+
+.card-float:nth-child(1) { left: 10%; top: 20%; }
+.card-float:nth-child(2) { left: 80%; top: 30%; animation-delay: 2s; }
+.card-float:nth-child(3) { left: 50%; top: 70%; animation-delay: 4s; }
+
+@keyframes floatCard {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-200px) rotate(180deg); opacity: 0; }
+}
+
+/* ===== VELAS ===== */
+.candle {
+  position: fixed;
+  bottom: 20px;
+  left: 10%;
+  width: 20px;
+  height: 60px;
+  background: linear-gradient(#222, #111);
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.flame {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 18px;
+  background: radial-gradient(circle, #ffcc66, #ff6600);
+  border-radius: 50%;
+  animation: flicker 1.5s infinite ease-in-out;
+  box-shadow: 0 0 15px rgba(255,140,0,0.6);
+}
+
+@keyframes flicker {
+  0%,100% { transform: translateX(-50%) scale(1); opacity: 1; }
+  50% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
+}
+
+/* ===== CONTEÚDO ===== */
 .container {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 900px;
   margin: auto;
   padding: 25px 20px;
   text-align: center;
 }
 
-/* imagens (placeholder seguro) */
 .placeholder {
   width: 100%;
-  height: 220px;
-  background: rgba(255,255,255,0.08);
+  height: 200px;
+  background: rgba(255,255,255,0.06);
   border: 1px dashed rgba(255,255,255,0.2);
   border-radius: 15px;
   display: flex;
@@ -62,18 +157,6 @@ body {
   margin: 15px 0;
 }
 
-/* título */
-h1 {
-  font-size: 2.3rem;
-  color: #d6a3ff;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  color: #ccc;
-  margin-bottom: 25px;
-}
-
 /* cards */
 .card {
   background: rgba(255,255,255,0.05);
@@ -81,11 +164,15 @@ h1 {
   padding: 20px;
   margin: 20px 0;
   border-radius: 15px;
-  backdrop-filter: blur(6px);
-  animation: fadeUp 1s ease;
+  transition: 0.4s;
 }
 
-/* botão whatsapp */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(170,90,255,0.25);
+}
+
+/* botão */
 .whatsapp-btn {
   display: inline-block;
   margin-top: 25px;
@@ -96,17 +183,19 @@ h1 {
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
-  box-shadow: 0 0 15px rgba(37,211,102,0.4);
+  box-shadow: 0 0 15px rgba(37,211,102,0.3);
 }
 
 .whatsapp-btn:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(37,211,102,0.5);
 }
 
-/* animação */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* título */
+h1 {
+  font-size: 2.3rem;
+  color: #d6a3ff;
+  margin-bottom: 10px;
 }
 </style>
 </head>
@@ -116,36 +205,44 @@ h1 {
 <div class="glow"></div>
 <div class="glow"></div>
 
+<!-- CARTAS -->
+<div class="card-float"></div>
+<div class="card-float"></div>
+<div class="card-float"></div>
+
+<!-- VELA -->
+<div class="candle">
+  <div class="flame"></div>
+</div>
+
+<!-- SILHUETA -->
+<div class="woman"></div>
+
 <div class="container">
 
-  <!-- CAPA -->
-  <div class="placeholder">IMAGEM DE CAPA (MESA MÍSTICA)</div>
-
   <h1>Curso Mesa Mística de Cartas</h1>
-  <p class="subtitle">Ervas • Proteção • Limpeza energética • Baralho Cigano</p>
+  <p>Ervas • Proteção • Limpeza energética • Baralho Cigano</p>
 
-  <!-- SEÇÃO 1 -->
+  <div class="placeholder">IMAGEM DE CAPA (VOCÊ VAI ADICIONAR)</div>
+
   <div class="card">
     <h2>🌿 Limpeza com Ervas</h2>
-    <p>Aprenda o uso espiritual das ervas para limpeza energética da mesa e do campo espiritual.</p>
-    <div class="placeholder">IMAGEM: ERVAS ESPIRITUAIS</div>
+    <p>Aprenda uso espiritual das ervas para limpeza energética.</p>
+    <div class="placeholder">IMAGEM FUTURA</div>
   </div>
 
-  <!-- SEÇÃO 2 -->
   <div class="card">
     <h2>🕯️ Proteção Espiritual</h2>
-    <p>Rituais de proteção antes e depois das leituras espirituais.</p>
-    <div class="placeholder">IMAGEM: VELAS / PROTEÇÃO</div>
+    <p>Rituais de proteção para leitura de cartas.</p>
+    <div class="placeholder">IMAGEM FUTURA</div>
   </div>
 
-  <!-- SEÇÃO 3 -->
   <div class="card">
     <h2>🃏 Mesa de Cartas</h2>
-    <p>Aprenda abertura e fechamento de jogos com segurança energética e intuição.</p>
-    <div class="placeholder">IMAGEM: BARALHO CIGANO</div>
+    <p>Aprenda abertura e fechamento de jogos espirituais.</p>
+    <div class="placeholder">IMAGEM FUTURA</div>
   </div>
 
-  <!-- BOTÃO WHATSAPP -->
   <a class="whatsapp-btn"
      href="https://wa.me/5562984420263?text=Quero%20entrar%20no%20curso%20Mesa%20M%C3%ADstica"
      target="_blank">
