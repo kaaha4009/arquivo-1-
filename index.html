@@ -1,126 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Curso Baralho Cigano & Pomba Gira</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #0f0f0f;
-      color: #fff;
-    }
+<meta charset="UTF-8">
+<title>Curso Baralho Cigano & Pomba Gira</title>
 
-    header {
-      background: linear-gradient(90deg, #6a0dad, #000);
-      text-align: center;
-      padding: 60px 20px;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #050007;
+  color: #fff;
+  overflow-x: hidden;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 34px;
-    }
+/* fundo com energia */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1500&q=80');
+  background-size: cover;
+  opacity: 0.25;
+  z-index: -1;
+}
 
-    header p {
-      color: #ddd;
-      margin-top: 10px;
-    }
+/* animação leve de brilho */
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(168,85,247,0.3); }
+  50% { box-shadow: 0 0 25px rgba(168,85,247,0.7); }
+  100% { box-shadow: 0 0 10px rgba(168,85,247,0.3); }
+}
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
+header {
+  text-align: center;
+  padding: 70px 20px;
+  background: linear-gradient(90deg, #2b003d, #000);
+}
 
-    .card {
-      background: #1c1c1c;
-      margin-top: 20px;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(106,13,173,0.3);
-    }
+header h1 {
+  font-size: 40px;
+  margin: 0;
+  color: #f5d0ff;
+  animation: glow 3s infinite;
+}
 
-    h2 {
-      color: #c084fc;
-    }
+header p {
+  color: #d9c2ff;
+}
 
-    ul {
-      text-align: left;
-      line-height: 1.8;
-    }
-
-    .botao {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 15px 25px;
-      background: #25D366;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .botao:hover {
-      background: #1ebe5d;
-    }
-
-    .centro {
-      text-align: center;
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-  <h1>Curso de Baralho Cigano & Pomba Gira 🔮</h1>
-  <p>Aprenda a interpretar as cartas e desenvolver sua espiritualidade com segurança e fundamento</p>
-</header>
-
-<div class="container">
-
-  <div class="card">
-    <h2>✨ Sobre o curso</h2>
-    <p>
-      Este curso foi criado para quem deseja aprender o Baralho Cigano do zero,
-      junto com fundamentos espirituais ligados à Pomba Gira, desenvolvendo intuição,
-      leitura de cartas e conexão espiritual.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>📚 O que você vai aprender</h2>
-    <ul>
-      <li>Significado de todas as cartas do Baralho Cigano</li>
-      <li>Como fazer tiragens simples e completas</li>
-      <li>Interpretação intuitiva das cartas</li>
-      <li>Fundamentos espirituais da Pomba Gira</li>
-      <li>Proteção espiritual durante as leituras</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>🔥 Para quem é esse curso</h2>
-    <ul>
-      <li>Iniciantes no baralho cigano</li>
-      <li>Pessoas que sentem conexão espiritual</li>
-      <li>Quem deseja trabalhar com espiritualidade</li>
-      <li>Quem quer desenvolver intuição e mediunidade</li>
-    </ul>
-  </div>
-
-  <div class="card centro">
-    <h2>📲 Garanta sua vaga agora</h2>
-    <p>Fale comigo no WhatsApp para entrar no curso</p>
-
-    <a class="botao" href="https://wa.me/5562984420264" target="_blank">
-      Quero entrar no curso
-    </a>
-  </div>
-
-</div>
-
-</body>
-</html>
+/* cards */
+.card {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 25px;
+  background: rgba(20, 10, 30, 0.85);
+  border-radius: 15px;
+  border: 1px solid rgba(200, 150, 255,
