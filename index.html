@@ -1,255 +1,249 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curso Mesa Mística</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chão dos Caveira</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+body{
+margin:0;
+background:#050007;
+overflow-x:hidden;
+font-family:Georgia, serif;
+color:white;
 }
 
-body {
-  background: radial-gradient(circle at top, #1a001f, #000);
-  color: #fff;
-  overflow-x: hidden;
+/* FUNDO GRADIENTE DINÂMICO */
+.bg{
+position:fixed;
+inset:0;
+background: radial-gradient(circle at 30% 20%, #2a0033, transparent 40%),
+            radial-gradient(circle at 70% 80%, #0d0015, transparent 45%),
+            #050007;
+animation: bgMove 12s ease-in-out infinite alternate;
+z-index:-3;
 }
 
-/* ===== FUNDO ===== */
-.glow {
-  position: fixed;
-  width: 260px;
-  height: 260px;
-  background: rgba(170, 90, 255, 0.12);
-  filter: blur(90px);
-  border-radius: 50%;
-  animation: float 12s infinite ease-in-out;
-  z-index: 0;
+@keyframes bgMove{
+0%{filter:brightness(0.9) contrast(1);}
+100%{filter:brightness(1.2) contrast(1.1);}
 }
 
-.glow:nth-child(1) { top: 10%; left: 10%; }
-.glow:nth-child(2) { bottom: 10%; right: 10%; }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(25px); }
+/* NÉVOA REAL (LAYERED BLUR) */
+.fog{
+position:fixed;
+inset:-20%;
+background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 60%);
+filter: blur(40px);
+animation: fogMove 18s linear infinite;
+z-index:-2;
 }
 
-/* ===== SILHUETA DA MULHER ===== */
-.woman {
-  position: fixed;
-  bottom: 0;
-  right: 5%;
-  width: 120px;
-  height: 260px;
-  background: linear-gradient(to top, #000, transparent);
-  border-radius: 60px 60px 20px 20px;
-  opacity: 0.25;
-  z-index: 1;
-  animation: breathe 6s infinite ease-in-out;
+@keyframes fogMove{
+0%{transform:translate3d(0,0,0);}
+100%{transform:translate3d(-5%, -3%, 0);}
 }
 
-.woman::before {
-  content: "";
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 80px;
-  background: #111;
-  border-radius: 50%;
+/* PARTÍCULAS CANVAS */
+canvas{
+position:fixed;
+inset:0;
+z-index:-1;
 }
 
-.woman::after {
-  content: "";
-  position: absolute;
-  top: -60px;
-  left: 10px;
-  width: 100px;
-  height: 120px;
-  background: radial-gradient(circle, #000 30%, transparent 70%);
-  border-radius: 50%;
-  opacity: 0.6;
+/* HEADER */
+.hero{
+text-align:center;
+padding:120px 20px 60px;
 }
 
-@keyframes breathe {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+.hero h1{
+font-size:52px;
+letter-spacing:1px;
+color:#d8b4ff;
+text-shadow:0 0 25px rgba(168,85,247,0.4);
 }
 
-/* ===== CARTAS FLUTUANTES ===== */
-.card-float {
-  position: fixed;
-  width: 25px;
-  height: 35px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 4px;
-  animation: floatCard 8s infinite linear;
-  z-index: 1;
+.hero p{
+max-width:700px;
+margin:auto;
+color:rgba(255,255,255,0.75);
 }
 
-.card-float:nth-child(1) { left: 10%; top: 20%; }
-.card-float:nth-child(2) { left: 80%; top: 30%; animation-delay: 2s; }
-.card-float:nth-child(3) { left: 50%; top: 70%; animation-delay: 4s; }
-
-@keyframes floatCard {
-  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-200px) rotate(180deg); opacity: 0; }
+/* BOTÃO PREMIUM */
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:16px 38px;
+border-radius:999px;
+background:linear-gradient(90deg,#6d28d9,#a855f7);
+color:white;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 0 40px rgba(168,85,247,0.4);
+transition:0.3s;
 }
 
-/* ===== VELAS ===== */
-.candle {
-  position: fixed;
-  bottom: 20px;
-  left: 10%;
-  width: 20px;
-  height: 60px;
-  background: linear-gradient(#222, #111);
-  border-radius: 5px;
-  z-index: 2;
+.btn:hover{
+transform:scale(1.06);
+box-shadow:0 0 60px rgba(168,85,247,0.6);
 }
 
-.flame {
-  position: absolute;
-  top: -18px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 12px;
-  height: 18px;
-  background: radial-gradient(circle, #ffcc66, #ff6600);
-  border-radius: 50%;
-  animation: flicker 1.5s infinite ease-in-out;
-  box-shadow: 0 0 15px rgba(255,140,0,0.6);
+/* CONTAINER */
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
 }
 
-@keyframes flicker {
-  0%,100% { transform: translateX(-50%) scale(1); opacity: 1; }
-  50% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
+/* CARDS GLASS (efeito premium real) */
+.card{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(14px);
+border-radius:18px;
+padding:25px;
+margin:20px 0;
+transform:translateZ(0);
 }
 
-/* ===== CONTEÚDO ===== */
-.container {
-  position: relative;
-  z-index: 3;
-  max-width: 900px;
-  margin: auto;
-  padding: 25px 20px;
-  text-align: center;
+/* CARTAS FLUTUANDO 3D REAL */
+.tarot{
+position:fixed;
+width:80px;
+opacity:0.12;
+animation: float3d 14s ease-in-out infinite;
 }
 
-.placeholder {
-  width: 100%;
-  height: 200px;
-  background: rgba(255,255,255,0.06);
-  border: 1px dashed rgba(255,255,255,0.2);
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #aaa;
-  margin: 15px 0;
+@keyframes float3d{
+0%{transform:translateY(0) rotateY(0deg) rotateZ(0deg);}
+50%{transform:translateY(-40px) rotateY(180deg) rotateZ(10deg);}
+100%{transform:translateY(0) rotateY(360deg) rotateZ(0deg);}
 }
 
-/* cards */
-.card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 15px;
-  transition: 0.4s;
+/* VELAS REALISTAS */
+.candle{
+position:fixed;
+bottom:0;
+width:14px;
+height:70px;
+background:#111;
+border-radius:6px;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(170,90,255,0.25);
+.flame{
+position:absolute;
+top:-18px;
+left:50%;
+transform:translateX(-50%);
+width:18px;
+height:24px;
+background:radial-gradient(circle at 30% 30%, #ffcc66, #ff6b00 60%, transparent 70%);
+border-radius:50%;
+filter:blur(0.5px);
+animation:flicker 0.12s infinite alternate;
 }
 
-/* botão */
-.whatsapp-btn {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 15px 25px;
-  background: #25D366;
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-  box-shadow: 0 0 15px rgba(37,211,102,0.3);
+@keyframes flicker{
+0%{transform:translateX(-50%) scale(1);}
+100%{transform:translateX(-50%) scale(1.15);}
 }
 
-.whatsapp-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(37,211,102,0.5);
-}
-
-/* título */
-h1 {
-  font-size: 2.3rem;
-  color: #d6a3ff;
-  margin-bottom: 10px;
+/* PREÇO */
+.price{
+font-size:34px;
+color:#a7f3d0;
+text-shadow:0 0 12px rgba(16,185,129,0.4);
 }
 </style>
 </head>
 
 <body>
 
-<div class="glow"></div>
-<div class="glow"></div>
+<div class="bg"></div>
+<div class="fog"></div>
 
-<!-- CARTAS -->
-<div class="card-float"></div>
-<div class="card-float"></div>
-<div class="card-float"></div>
+<canvas id="particles"></canvas>
 
-<!-- VELA -->
-<div class="candle">
-  <div class="flame"></div>
+<!-- cartas 3D -->
+<div class="tarot" style="top:20%;left:10%"></div>
+<div class="tarot" style="top:60%;left:80%"></div>
+
+<!-- velas reais -->
+<div class="candle" style="left:15%">
+<div class="flame"></div>
 </div>
 
-<!-- SILHUETA -->
-<div class="woman"></div>
+<div class="candle" style="left:85%">
+<div class="flame"></div>
+</div>
+
+<div class="hero">
+<h1>Curso de Cartas & Energia Espiritual</h1>
+<p>Aprenda leitura intuitiva, proteção energética e práticas espirituais com profundidade real.</p>
+<a class="btn">QUERO ACESSO AGORA</a>
+</div>
 
 <div class="container">
 
-  <h1>Curso Mesa Mística de Cartas</h1>
-  <p>Ervas • Proteção • Limpeza energética • Baralho Cigano</p>
+<div class="card">
+<h2>O que você vai aprender</h2>
+<p>Leitura energética, limpeza espiritual, proteção e mesa de jogo espiritual.</p>
+</div>
 
-  <div class="placeholder">IMAGEM DE CAPA (VOCÊ VAI ADICIONAR)</div>
+<div class="card">
+<h2>Transformação energética</h2>
+<p>Você aprende a sentir, interpretar e conduzir energia com segurança.</p>
+</div>
 
-  <div class="card">
-    <h2>🌿 Limpeza com Ervas</h2>
-    <p>Aprenda uso espiritual das ervas para limpeza energética.</p>
-    <div class="placeholder">IMAGEM FUTURA</div>
-  </div>
-
-  <div class="card">
-    <h2>🕯️ Proteção Espiritual</h2>
-    <p>Rituais de proteção para leitura de cartas.</p>
-    <div class="placeholder">IMAGEM FUTURA</div>
-  </div>
-
-  <div class="card">
-    <h2>🃏 Mesa de Cartas</h2>
-    <p>Aprenda abertura e fechamento de jogos espirituais.</p>
-    <div class="placeholder">IMAGEM FUTURA</div>
-  </div>
-
-  <a class="whatsapp-btn"
-     href="https://wa.me/5562984420263?text=Quero%20entrar%20no%20curso%20Mesa%20M%C3%ADstica"
-     target="_blank">
-     💬 Falar no WhatsApp
-  </a>
+<div class="card">
+<h2 class="price">R$ 97,00</h2>
+<p>Acesso imediato</p>
+<a class="btn">GARANTIR VAGA</a>
+</div>
 
 </div>
+
+<script>
+/* PARTÍCULAS PROFISSIONAIS (SEM IMAGEM, SÓ LUZ) */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*1.5,
+d:Math.random()*1
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(255,255,255,0.6)";
+
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
+ctx.fill();
+
+p.y += 0.3 + p.d;
+if(p.y > canvas.height){
+p.y = 0;
+p.x = Math.random()*canvas.width;
+}
+});
+}
+
+setInterval(draw,33);
+</script>
 
 </body>
 </html>
